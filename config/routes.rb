@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-root "pages#index"
+  root "pages#index"
 
-resources :pages
-resources :articles
+  get "signup", to: "users#new"
+
+  resources :pages
+  resources :articles
 end
