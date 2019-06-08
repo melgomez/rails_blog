@@ -1,4 +1,12 @@
 <div class="jumbotron jumbotron-fluid">
+  <% if user.errors.any? %>
+    <h3>The following errors prevented you from signing up:</h3>
+    <ul>
+      <% user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <div class="container">
     <%= form_with(model: user, local: true) do |form| %>
       <div class="form-group row">
