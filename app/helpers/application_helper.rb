@@ -1,9 +1,12 @@
 module ApplicationHelper
-  def nav_link(link_text, link_path)
+  def nav_link(link_text, link_path, *method)
     class_name = current_page?(link_path) ? 'nav-item active' : 'nav-item'
-    content_tag(:li, :class => class_name) do
-      link_to link_text, link_path, class: 'nav-link'
-    end
+
+      content_tag(:li, :class => class_name) do
+        link_to link_text, link_path, class: 'nav-link', method: method
+      end
+
+
   end
 
   def nav_link_method(link_text, link_path, method)
