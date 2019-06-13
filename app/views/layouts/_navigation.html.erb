@@ -9,7 +9,13 @@
       <ul class="navbar-nav mr-auto">
         <%= nav_link "Home", root_path %>
         <%= nav_link "Articles", articles_path %>
-        <%= nav_link "Logout", logout_path, "delete" %>
+        <% if logged_in? %>
+          <%= nav_link "Logout", logout_path, "delete" %>
+        <% else %>
+          <%= nav_link "Sign In", login_path %>
+          <%= nav_link "Sign Up", signup_path %>
+        <% end %>
+
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
