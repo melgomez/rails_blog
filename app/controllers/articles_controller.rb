@@ -53,7 +53,7 @@ class ArticlesController < ApplicationController
   end
 
   def require_author
-    if current_user != @article.user
+    if current_user != @article.user and !current_user.admin?
       flash[:danger] = "You are not authorized to perform this action"
       redirect_to root_path
     end
